@@ -25,3 +25,8 @@ VALUES (1, 'Harry', 'Sharma', 'harry@example.com', '1234567890', '123 Main Stree
 -- Add order details to the Order table
 INSERT INTO Order (order_id, customer_id, order_date, total_amount)
 VALUES (1, 1, '2023-07-14', 100.00);
+
+-- Retrieve customer details from Customer and Order tables
+SELECT c.customer_id, c.first_name, c.last_name, c.email, c.phone_number, c.address, c.city, c.state, c.zip_code, o.order_id, o.order_date, o.total_amount
+FROM Customer c
+JOIN Order o ON c.customer_id = o.customer_id;
