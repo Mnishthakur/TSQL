@@ -38,3 +38,28 @@ WHERE customer_id = <1>;
 -- Delete customer details from the Customer table
 DELETE FROM Customer
 WHERE customer_id = <1>;
+
+-- Update customer details in the Customer table
+UPDATE Customer
+SET first_name = 'Manish',
+    last_name = 'Thakur',
+    email = 'newemail@example.com',
+    phone_number = '9876543210',
+    address = 'New Address',
+    city = 'Gurgaon',
+    state = 'Haryana',
+    zip_code = '162712'
+WHERE customer_id = (
+    SELECT customer_id
+    FROM Customer
+    WHERE first_name = 'Manish'
+);
+
+-- Update customer details in the Order table (if needed)
+UPDATE [Order]
+SET total_amount = <700>
+WHERE customer_id = (
+    SELECT customer_id
+    FROM Customer
+    WHERE first_name = 'Manish'
+);
