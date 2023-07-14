@@ -30,3 +30,11 @@ VALUES (1, 1, '2023-07-14', 100.00);
 SELECT c.customer_id, c.first_name, c.last_name, c.email, c.phone_number, c.address, c.city, c.state, c.zip_code, o.order_id, o.order_date, o.total_amount
 FROM Customer c
 JOIN Order o ON c.customer_id = o.customer_id;
+
+-- Delete order details for a specific customer from the Order table
+DELETE FROM Order
+WHERE customer_id = <customer_id>;
+
+-- Delete customer details from the Customer table
+DELETE FROM Customer
+WHERE customer_id = <customer_id>;
